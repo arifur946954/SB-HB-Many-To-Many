@@ -38,16 +38,25 @@ public class JpaCrudApplication {
 			//deleteCourseByReview(appDao);
 
 			//start here for many to many relationship
-			addStudentWithCourse(appDao);
+			//addStudentWithCourse(appDao);
+			findCourseStudentById(appDao);
 					
 
 		};
 	}
 
+	private void findCourseStudentById(AppDao appDao) {
+		int theId=10;
+	Course tempCourse=	appDao.findCourseByStudent(theId);
+		System.out.println("Course details is: "+tempCourse);
+		System.out.println("Student detial is: "+tempCourse.getStudents());
+		System.out.println("Done!!!!!!");
+	}
+
 	private void addStudentWithCourse(AppDao appDao) {
-		Course tempCourse=new Course("CSE-101");
-		Student tempStudent1=new Student("Aridur","Rahman","arif@gmail.com");
-		Student tempStudent2=new Student("Shahid","Afridi","afridi@gmail.com");
+		Course tempCourse=new Course("EEE-102");
+		Student tempStudent1=new Student("Zahid","Hasan","zahid@gmail.com");
+		Student tempStudent2=new Student("Imran","Nazir","imran@gmail.com");
 		tempCourse.addStudent(tempStudent1);
 		tempCourse.addStudent(tempStudent2);
 		System.out.println("savinng course is:"+tempCourse);
