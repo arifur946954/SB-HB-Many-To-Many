@@ -3,6 +3,7 @@ package com.jpa.JpaCrud.dao;
 import com.jpa.JpaCrud.entity.Course;
 import com.jpa.JpaCrud.entity.Instructor;
 import com.jpa.JpaCrud.entity.InstructorDetails;
+import com.jpa.JpaCrud.entity.Student;
 
 import java.util.List;
 
@@ -21,5 +22,6 @@ public interface AppDao {
     void save(Course theCourse);
     Course findCourseByReview(int theId);
     Course findCourseByStudent(int theId);
+    Student findStudentCourseById(int theId);
 
 }

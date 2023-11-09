@@ -39,10 +39,19 @@ public class JpaCrudApplication {
 
 			//start here for many to many relationship
 			//addStudentWithCourse(appDao);
-			findCourseStudentById(appDao);
+			//findCourseStudentById(appDao);
+			findStudentWithCourseById(appDao);
 					
 
 		};
+	}
+
+	private void findStudentWithCourseById(AppDao appDao) {
+		int theId=1;
+	Student tempStudent=	appDao.findStudentCourseById(theId);
+		System.out.println("student list is:"+tempStudent);
+		System.out.println("Course is: "+tempStudent.getCourses());
+		System.out.println("Done!!!!!!");
 	}
 
 	private void findCourseStudentById(AppDao appDao) {
