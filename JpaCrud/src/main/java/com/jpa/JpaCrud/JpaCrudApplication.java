@@ -40,10 +40,25 @@ public class JpaCrudApplication {
 			//start here for many to many relationship
 			//addStudentWithCourse(appDao);
 			//findCourseStudentById(appDao);
-			findStudentWithCourseById(appDao);
+			//findStudentWithCourseById(appDao);
+			updateStudent(appDao);
 					
 
 		};
+	}
+
+	private void updateStudent(AppDao appDao) {
+		int theId=6;
+	Student tempStudet=	appDao.findStudentCourseById(theId);
+	Course tempCourse1=new Course("CIVIL-101");
+	Course tepCourse2=new Course("CSE-201");
+	tempStudet.addCourse(tempCourse1);
+	tempStudet.addCourse(tepCourse2);
+		appDao.updateStudent(tempStudet);
+		System.out.println("Student is:"+tempStudet);
+		System.out.println("Course is :"+tempStudet.getCourses());
+		System.out.println("Done!!!!!!!");
+
 	}
 
 	private void findStudentWithCourseById(AppDao appDao) {
@@ -63,9 +78,9 @@ public class JpaCrudApplication {
 	}
 
 	private void addStudentWithCourse(AppDao appDao) {
-		Course tempCourse=new Course("EEE-102");
-		Student tempStudent1=new Student("Zahid","Hasan","zahid@gmail.com");
-		Student tempStudent2=new Student("Imran","Nazir","imran@gmail.com");
+		Course tempCourse=new Course("IPE-102");
+		Student tempStudent1=new Student("shahin","Shah","shahin@gmail.com");
+		Student tempStudent2=new Student("Imran","Khan","imran@gmail.com");
 		tempCourse.addStudent(tempStudent1);
 		tempCourse.addStudent(tempStudent2);
 		System.out.println("savinng course is:"+tempCourse);
