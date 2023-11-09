@@ -1,10 +1,7 @@
 package com.jpa.JpaCrud;
 
 import com.jpa.JpaCrud.dao.AppDao;
-import com.jpa.JpaCrud.entity.Course;
-import com.jpa.JpaCrud.entity.Instructor;
-import com.jpa.JpaCrud.entity.InstructorDetails;
-import com.jpa.JpaCrud.entity.Review;
+import com.jpa.JpaCrud.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,10 +35,25 @@ public class JpaCrudApplication {
 			//save course for review
 			//CreateCourseByReview(appDao);
 			//findCourseWithReview(appDao);
-			deleteCourseByReview(appDao);
+			//deleteCourseByReview(appDao);
+
+			//start here for many to many relationship
+			addStudentWithCourse(appDao);
 					
-			//test file
+
 		};
+	}
+
+	private void addStudentWithCourse(AppDao appDao) {
+		Course tempCourse=new Course("CSE-101");
+		Student tempStudent1=new Student("Aridur","Rahman","arif@gmail.com");
+		Student tempStudent2=new Student("Shahid","Afridi","afridi@gmail.com");
+		tempCourse.addStudent(tempStudent1);
+		tempCourse.addStudent(tempStudent2);
+		System.out.println("savinng course is:"+tempCourse);
+		System.out.println("saving student is: "+tempCourse.getStudents());
+		appDao.save(tempCourse);
+		System.out.println("Save Done!!!!!!!");
 	}
 
 	private void deleteCourseByReview(AppDao appDao) {
