@@ -41,11 +41,19 @@ public class JpaCrudApplication {
 			//addStudentWithCourse(appDao);
 			//findCourseStudentById(appDao);
 			//findStudentWithCourseById(appDao);
-			updateStudent(appDao);
+			//updateStudent(appDao);
+		    delteByCourse(appDao);
 					
 
 		};
 	}
+
+	private void delteByCourse(AppDao appDao) {
+		int theId=10;
+		appDao.deleteCourseById(theId);
+		System.out.println("Delete is Sucessfully");
+	}
+
 
 	private void updateStudent(AppDao appDao) {
 		int theId=6;
