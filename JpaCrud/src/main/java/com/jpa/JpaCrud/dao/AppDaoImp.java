@@ -163,5 +163,12 @@ public class AppDaoImp implements AppDao{
 
     }
 
+    @Override
+    @Transactional
+    public void deltebyStudent(int theId) {
+     Student theStuent=   entityManager.find(Student.class,theId);
+      entityManager.remove(theStuent);
+    }
+
 
 }
